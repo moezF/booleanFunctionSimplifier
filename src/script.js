@@ -20,24 +20,23 @@ function entryValToString(entryval) {
 function printHowToUse() {
     console.log("enter -m 'minter1,minterm2....' to get simplified formula from minterms")
     console.log('enter -t \'variableNames\' (function) to get simplified formula from function with the specified header')
-    console.log('enter (function)  to get simplified formula from function')
+    console.log('enter -f (function)  to get simplified formula from function')
 }
 function lunch() {
     let start = new Date().getTime()
     let header, result
-    if (process.argv[2] == "-h" | process.argv[2] == "-help" | process.argv[2] == "--help") {
-        printHowToUse()
-        return
-    }else
     if (process.argv[2] == "-m") {
-        let minterm=process.argv[3].split(',')
-        minterm=minterm.map((value)=>parseInt(value))
+        let minterm = process.argv[3].split(',')
+        minterm = minterm.map((value) => parseInt(value))
         result = FormulaGenerator.generateFormulaFromMinTerm(minterm)
     } else if (process.argv[2] == "-t") {
         header = process.argv[3].split('')
         result = FormulaGenerator.generateFormulaFromFunction(process.argv[4], header)
+    } else if (process.argv[2] == "-f") {
+        result = FormulaGenerator.generateFormulaFromFunction(process.argv[3])
     } else {
-        result = FormulaGenerator.generateFormulaFromFunction(process.argv[2])
+        printHowToUse()
+        return
     }
     console.log(result)
 
@@ -46,7 +45,7 @@ function lunch() {
     // let tableInput=Utils.makeTruthTableEntries(header.length)
     // let minterm=[tableInput[7],tableInput[11],tableInput[17],tableInput[30]]
     // let formula=FormulaGenerator.primeImplicantToSum(QuineMcCluskey.findPrimeImplicant(minterm),header)
-    console.log("processing time: "+(new Date().getTime() - start)+"ms")
+    console.log("processing time: " + (new Date().getTime() - start) + "ms")
 }
 lunch()
 process.argv[0]

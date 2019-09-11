@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "moez",
-  "license": "  This code is using the No license license.  Which means you are allowed to use the software.  You are not allowed the modify / copy the code without the permission from the owner.  For more information visit: https://choosealicense.com/no-permission/.  "
+  "author": "moezF",
+  "license": "  This code is using the No license license.  Which means you are allowed to use the software.  You are not allowed the modify / copy the code without the permission from the owner.  For more information visit: https://choosealicense.com/no-permission/.  ",
+  "dependencies": {}
 }

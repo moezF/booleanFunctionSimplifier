@@ -1,5 +1,5 @@
 'use strict'
-const QuineMcCluskey = require("./QuineMcCluskeyIterative")
+const QuineMcCluskey = require("./QuineMcCluskey")
 const Utils = require("./Utils")
 const evaluator = require('./evaluator')
 
@@ -51,7 +51,6 @@ class FormulaGenerator {
         let tableInput = Utils.makeTruthTableEntries(header.length)
         let minterm = Utils.getMinTermFromInputTable(mintermsB10, tableInput)
         return this.primeImplicantToSum(QuineMcCluskey.findPrimeImplicant(minterm),header )
-
     }
 }
 
